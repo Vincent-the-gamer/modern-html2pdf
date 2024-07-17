@@ -5,26 +5,20 @@ import { ModernHtml2Pdf } from "modern-html2pdf"
 async function exportPDF() {
   const area = document.getElementById("area")!
   const convertor = new ModernHtml2Pdf(area)
-  const canvas = await convertor.toCanvas({
-    backgroundColor: "white",
-    style: {
-      color: "black",
-      width: 800,
-      height: 600
+  await convertor.quickGenerate({
+    fileName: "demo",
+    domToCanvasConfig: {
+      backgroundColor: "#ffffff",
+      style: {
+        color: "black"
+      }
+    },
+    jsPDFConfig: {
+      orientation: "p",
+      unit: "mm",
+      format: "a4"
     }
   })
-  const pdf = convertor.toJSPdf({
-    orientation: "p",
-    unit: "mm",
-    format: "a4"
-  })
-  let a4w = 190
-  let a4h = 277
-  pdf.addImage(
-    canvas.toDataURL("image/jpeg", 1),
-    "JPEG", 10, 10, a4w, a4h
-  )
-  pdf.save("test.pdf")
 }
 </script>
 
