@@ -23,3 +23,11 @@ But there are too much problem with `html2canvas`:
 These can be gracefully fixed using `modern-screenshot`.
 
 So this is why I created this repo.
+
+## Usage
+Get package from npm(not released now!!):
+```shell
+npm i modern-htmlpdf
+```
+
+To be continued...

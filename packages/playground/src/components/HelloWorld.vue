@@ -1,56 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ModernHtml2Pdf } from "modern-html2pdf"
 
 defineProps<{ msg: string }>()
-
-async function exportPDF() {
-  const area = document.getElementById("area")!
-  const convertor = new ModernHtml2Pdf(area)
-  const canvas = await convertor.toCanvas()
-  const pdf = convertor.toJSPdf({
-    orientation: "p",
-    unit: "mm",
-    format: "a4"
-  })
-  pdf.addImage(
-    canvas.toDataURL("image/jpeg", 1.0),
-    "JPEG", 200, 200, canvas.width, canvas.height
-  )
-
-  pdf.save("test.pdf")
-}
-
 
 const count = ref(0)
 </script>
 
 <template>
-  <div id="area">
-    <h1>{{ msg }}</h1>
+  <h1>{{ msg }}</h1>
 
-    <div class="card">
-      <button type="button" @click="count++">count is {{ count }}</button>
-      <p>
-        Edit
-        <code>components/HelloWorld.vue</code> to test HMR
-      </p>
-    </div>
-
+  <div class="card">
+    <button type="button" @click="count++">count is {{ count }}</button>
     <p>
-      Check out
-      <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
-      starter
+      Edit
+      <code>components/HelloWorld.vue</code> to test HMR
     </p>
-    <p>
-      Learn more about IDE Support for Vue in the
-      <a href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support" target="_blank">Vue Docs Scaling up
-        Guide</a>.
-    </p>
-    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
-
-    <button @click="exportPDF">Export PDF</button>
   </div>
+
+  <p>
+    Check out
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
+    starter
+  </p>
+  <p>
+    Learn more about IDE Support for Vue in the
+    <a href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support" target="_blank">Vue Docs Scaling up
+      Guide</a>.
+  </p>
+  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
