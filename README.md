@@ -25,7 +25,7 @@ So this is why I created this repo.
 ## Usage
 Get package from npm:
 ```shell
-npm i modern-htmlpdf
+npm i modern-html2pdf
 ```
 
 ### Quickly Generate PDF
