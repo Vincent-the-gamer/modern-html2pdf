@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "login-npm": "pnpm login --registry https://registry.npmjs.com",
-    "build": "pnpm -C packages/core run build"
+    "build": "pnpm -C packages/core run build",
+    "play": "pnpm run build && pnpm -C packages/playground run dev"
   },
   "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
   "license": "MIT"

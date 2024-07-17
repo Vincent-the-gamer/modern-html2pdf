@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "modern-html2pdf": "link:../core",
     "vue": "^3.4.31"
   },
   "devDependencies": {

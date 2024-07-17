@@ -29,6 +29,9 @@ importers:
 
   packages/playground:
     dependencies:
+      modern-html2pdf:
+        specifier: link:../core
+        version: link:../core
       vue:
         specifier: ^3.4.31
         version: 3.4.31(typescript@5.5.3)
