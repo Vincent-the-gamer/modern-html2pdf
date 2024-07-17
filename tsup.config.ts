@@ -1,8 +1,8 @@
 import type { Options } from 'tsup'
 
-export default <Options>{
+export default <Options> {
   entryPoints: [
-    "src/index.ts"
+    "packages/core/src/index.ts"
   ],
   clean: true,
   format: ['esm',"cjs"],
