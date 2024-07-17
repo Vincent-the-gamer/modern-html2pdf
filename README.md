@@ -1,6 +1,6 @@
 # modern-html2pdf(Alpha)
 
-<a href="https://www.npmjs.com/package/@vincent-the-gamer/modern-html2pdf" target="_blank">
+<a href="https://www.npmjs.com/package/Vincent-the-gamer/modern-html2pdf" target="_blank">
     <img src="https://img.shields.io/npm/v/@vincent-the-gamer/modern-html2pdf?style=flat-square" alt="npm"/>
 </a>
 
