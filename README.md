@@ -1,4 +1,4 @@
-# modern-html2pdf
+# modern-html2pdf(Alpha)
 
 <a href="https://www.npmjs.com/package/@vincent-the-gamer/modern-html2pdf" target="_blank">
     <img src="https://img.shields.io/npm/v/@vincent-the-gamer/modern-html2pdf?style=flat-square" alt="npm"/>
@@ -7,8 +7,6 @@
 <a href="https://github.com/Vincent-the-gamer/modern-html2pdf/blob/master/LICENSE" target="_blank">
     <img src="https://img.shields.io/github/license/Vincent-the-gamer/modern-html2pdf?style=flat-square" alt="GitHub"/>
 </a>
-
-Work in progress.
 
 ## Why?
 
