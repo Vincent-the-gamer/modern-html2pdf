@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "login-npm": "pnpm login --registry https://registry.npmjs.com"
+  },
+  "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.1.1"
+  }
+}

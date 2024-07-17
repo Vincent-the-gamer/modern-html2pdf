@@ -1,0 +1,59 @@
+{
+  "name": "modern-html2pdf",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Converts any HTML element into a PDF entirely using modern-screenshot and jsPDF",
+  "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ],
+      "client": [
+        "./dist/client/index.d.ts"
+      ],
+      "server": [
+        "./dist/server/index.d.ts"
+      ]
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Vincent-the-gamer/modern-html2pdf#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vincent-the-gamer/modern-html2pdf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vincent-the-gamer/modern-html2pdf/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com",
+    "access": "public"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "html2pdf",
+    "frontend"
+  ],
+  "devDependencies": {
+    "tsup": "^8.1.1"
+  },
+  "dependencies": {
+    "jspdf": "^2.5.1",
+    "modern-screenshot": "^4.4.39"
+  }
+}
