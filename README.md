@@ -1,18 +1,26 @@
-# modern-html2pdf(Alpha)
+<h1 align="center">modern-html2pdf(Alpha)</h1>
 
-<a href="https://www.npmjs.com/package/modern-html2pdf" target="_blank">
-    <img src="https://img.shields.io/npm/v/modern-html2pdf?style=flat-square" alt="npm"/>
-</a>
+<p align="center">
+    <b>
+        <i>Converts any HTML element to PDF using modern-screenshot and jsPDF.</i>
+    </b>
+</p>
 
-<a href="https://github.com/Vincent-the-gamer/modern-html2pdf/blob/master/LICENSE" target="_blank">
-    <img src="https://img.shields.io/github/license/Vincent-the-gamer/modern-html2pdf?style=flat-square" alt="GitHub"/>
-</a>
+<p align="center">
+    <a href="https://www.npmjs.com/package/modern-html2pdf" target="_blank">
+        <img src="https://img.shields.io/npm/v/modern-html2pdf?style=flat-square" alt="npm"/>
+    </a>
+    <a href="https://github.com/Vincent-the-gamer/modern-html2pdf/blob/master/LICENSE" target="_blank">
+        <img src="https://img.shields.io/github/license/Vincent-the-gamer/modern-html2pdf?style=flat-square" alt="GitHub"/>
+    </a>
+</p>
+
 
 ## Why?
 
 This repo is inspired by [html2pdf.js](https://github.com/eKoopmans/html2pdf.js), which uses `html2canvas` and `jsPDF` to generate PDFs. 
 
-But there are too much problem with `html2canvas`:
+But it has too much problem with `html2canvas`:
 
 - SVGs are not supported
 - Custom fonts couldn't show correctly.
@@ -20,7 +28,7 @@ But there are too much problem with `html2canvas`:
 
 These can be gracefully fixed using `modern-screenshot`.
 
-So this is why I created this repo.
+That's why I created this repo.
 
 ## Usage
 Get package from npm:
