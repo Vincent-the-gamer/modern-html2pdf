@@ -31,6 +31,9 @@
       ]
     }
   },
+  "scripts": {
+    "build": "tsup"
+  },
   "license": "MIT",
   "homepage": "https://github.com/Vincent-the-gamer/modern-html2pdf#readme",
   "repository": {
@@ -46,14 +49,15 @@
   },
   "sideEffects": false,
   "keywords": [
-    "html2pdf",
-    "frontend"
+    "html2pdf"
   ],
-  "devDependencies": {
-    "tsup": "^8.1.1"
-  },
   "dependencies": {
     "jspdf": "^2.5.1",
     "modern-screenshot": "^4.4.39"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "tsup": "8.1.0",
+    "typescript": "^5.2.2"
   }
 }

@@ -4,11 +4,8 @@
   "private": true,
   "scripts": {
     "login-npm": "pnpm login --registry https://registry.npmjs.com",
-    "build": "tsup"
+    "build": "pnpm -C packages/core run build"
   },
   "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "tsup": "^8.1.1"
-  }
+  "license": "MIT"
 }
