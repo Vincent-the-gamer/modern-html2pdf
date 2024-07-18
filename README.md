@@ -1,4 +1,4 @@
-<h1 align="center">modern-html2pdf(Alpha)</h1>
+<h1 align="center">modern-html2pdf</h1>
 
 <p align="center">
     <b>
@@ -103,8 +103,9 @@ export interface jsPDFOptions {
         <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
     <HelloWorld msg="Vite + Vue" />
-    </div>
-    <div class="area">
+</div>
+
+<div class="area">
     <a href="https://vitejs.dev" target="_blank">
         <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
