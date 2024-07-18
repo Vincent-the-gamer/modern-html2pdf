@@ -1,4 +1,4 @@
-import { GetPdfOptions } from "../types";
+import { GetPdfOptions } from "../types"
 
 export const defaultConfig: GetPdfOptions = {
   fileName: "demo",

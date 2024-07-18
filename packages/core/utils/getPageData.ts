@@ -1,28 +1,28 @@
-import type { jsPDF } from 'jspdf';
-import type { GetPdfOptions } from '../types';
+import type { jsPDF } from 'jspdf'
+import type { GetPdfOptions } from '../types'
 
-const pixelRatio = window.devicePixelRatio;
+const pixelRatio = window.devicePixelRatio
 
 // canvas to DataUrl
 function getPageData({ canvas, pdf, pdfContentWidth, opts }: {
-  canvas: HTMLCanvasElement;
-  pdf: jsPDF;
-  pdfContentWidth: number;
-  opts: GetPdfOptions;
+  canvas: HTMLCanvasElement
+  pdf: jsPDF
+  pdfContentWidth: number
+  opts: GetPdfOptions
 }) {
-  const pageData = canvas.toDataURL(opts.imageType, opts.imageQuality);
-  const imgProps = pdf.getImageProperties(pageData);
+  const pageData = canvas.toDataURL(opts.imageType, opts.imageQuality)
+  const imgProps = pdf.getImageProperties(pageData)
   const printWidth = !!opts.autoResize
     ? pdfContentWidth
-    : imgProps.width / pixelRatio;
+    : imgProps.width / pixelRatio
   const printHeight = !!opts.autoResize
     ? pdfContentWidth / imgProps.width * imgProps.height
-    : imgProps.height / pixelRatio;
+    : imgProps.height / pixelRatio
   return {
     pageData,
     printWidth,
     printHeight,
-  };
+  }
 }
 
-export default getPageData;
+export default getPageData

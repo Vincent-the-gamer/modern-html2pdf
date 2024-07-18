@@ -1,4 +1,4 @@
-import type { jsPDF, jsPDFOptions } from "jspdf";
+import type { jsPDF, jsPDFOptions } from "jspdf"
 
 export interface PdfInstance {
     pdf: jsPDF
@@ -24,6 +24,6 @@ export interface GetPdfOptions {
     imageType: string,
     imageQuality: number,
     autoResize: boolean,
-    init: (this: GetPdfOptions, pdf: jsPDF) => Promise<void> | void;
-    success: (pdf: jsPDF) => Promise<void> | void;
+    init: (this: GetPdfOptions, pdf: jsPDF) => Promise<void> | void
+    success: (pdf: jsPDF) => Promise<void> | void
 }

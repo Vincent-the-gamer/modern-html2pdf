@@ -96,12 +96,12 @@ export class ModernHtml2Pdf {
         if ('length' in this.el) {
             for (let i = 0; i < this.el.length; i++) {
                 const canvas = await this.domToCanvas(this.el[i], _opts.domToCanvasConfig || {})
-                renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts);
+                renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts)
             }
         } else {
             // single page for one node
             const canvas = await this.domToCanvas(this.el, _opts.domToCanvasConfig || {})
-            renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts);
+            renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts)
         }
 
         // save pdf
@@ -118,10 +118,10 @@ function setPdf(
     currentPage: number,
     pageOfCurrentNode: number,
 ) {
-    pdfInstance.pdf = pdf;
-    pdfInstance.position = position;
-    pdfInstance.currentPage = currentPage;
-    pdfInstance.pageOfCurrentNode = pageOfCurrentNode;
+    pdfInstance.pdf = pdf
+    pdfInstance.position = position
+    pdfInstance.currentPage = currentPage
+    pdfInstance.pageOfCurrentNode = pageOfCurrentNode
 }
 
 function renderCanvas(
@@ -137,22 +137,22 @@ function renderCanvas(
         pdfHeight,
         position,
         currentPage,
-        pageOfCurrentNode } = pdfInstance;
-    const { pageData, printWidth, printHeight } = getPageData({ canvas, pdf, pdfContentWidth, opts });
+        pageOfCurrentNode } = pdfInstance
+    const { pageData, printWidth, printHeight } = getPageData({ canvas, pdf, pdfContentWidth, opts })
 
     // height which not yet print to PDF.
-    let leftHeight = printHeight;
+    let leftHeight = printHeight
 
     // check if need reset position(change node)
     if (position < 0) {
-        pdf.addPage();
-        currentPage += 1;
-        pageOfCurrentNode = 1;
-        position = 0;
+        pdf.addPage()
+        currentPage += 1
+        pageOfCurrentNode = 1
+        position = 0
     }
 
     // check if content needs multi pages
-    const { margin } = opts;
+    const { margin } = opts
     while (leftHeight > 0) {
         // add content
         pdf.addImage(
@@ -164,23 +164,23 @@ function renderCanvas(
             margin.bottom * (pageOfCurrentNode - 1),
             printWidth,
             printHeight,
-        );
+        )
         // add margin top/bottom
-        pdf.setFillColor(255, 255, 255);
-        pdf.rect(0, 0, pdfWidth, margin.top, 'F');
-        pdf.rect(0, pdfHeight - margin.bottom, pdfWidth, margin.bottom, 'F');
+        pdf.setFillColor(255, 255, 255)
+        pdf.rect(0, 0, pdfWidth, margin.top, 'F')
+        pdf.rect(0, pdfHeight - margin.bottom, pdfWidth, margin.bottom, 'F')
         // check left content
         if (leftHeight < pdfContentHeight) {
-            position -= leftHeight;
-            break;
+            position -= leftHeight
+            break
         } else {
-            leftHeight -= pdfContentHeight;
-            position -= pdfHeight;
-            pdf.addPage();
-            currentPage += 1;
-            pageOfCurrentNode += 1;
+            leftHeight -= pdfContentHeight
+            position -= pdfHeight
+            pdf.addPage()
+            currentPage += 1
+            pageOfCurrentNode += 1
         }
     }
 
-    setPdf(pdfInstance, pdf, position, currentPage, pageOfCurrentNode);
+    setPdf(pdfInstance, pdf, position, currentPage, pageOfCurrentNode)
 }
