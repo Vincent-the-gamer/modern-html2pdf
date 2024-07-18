@@ -1,6 +1,6 @@
 {
   "name": "modern-html2pdf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Converts any HTML element into a PDF entirely using modern-screenshot and jsPDF",
   "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.11",
-    "tsup": "8.1.0",
-    "typescript": "^5.2.2"
+    "tsup": "^8.1.2",
+    "typescript": "^5.5.3"
   }
 }

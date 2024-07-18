@@ -3,27 +3,37 @@ import HelloWorld from './components/HelloWorld.vue'
 import { ModernHtml2Pdf } from "modern-html2pdf"
 
 async function exportPDF() {
-  const area = document.getElementById("area")!
-  const convertor = new ModernHtml2Pdf(area)
+  const pages = Array.from(document.getElementsByClassName("area"))
+  const convertor = new ModernHtml2Pdf(pages as HTMLElement[])
   await convertor.quickGenerate({
     fileName: "demo",
     domToCanvasConfig: {
-      backgroundColor: "#ffffff",
+      backgroundColor: "white",
       style: {
         color: "black"
       }
     },
-    jsPDFConfig: {
-      orientation: "p",
-      unit: "mm",
-      format: "a4"
+    margin: {
+      left: 1,
+      right: 1,
+      top: 1,
+      bottom: 1
     }
   })
 }
 </script>
 
 <template>
-  <div id="area">
+  <div class="area">
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
+    <HelloWorld msg="Vite + Vue" />
+  </div>
+  <div class="area">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -36,7 +46,7 @@ async function exportPDF() {
 </template>
 
 <style scoped>
-#area {
+.area {
   width: fit-content;
   height: fit-content;
 }
