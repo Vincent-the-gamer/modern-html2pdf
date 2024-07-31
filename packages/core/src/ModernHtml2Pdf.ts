@@ -1,22 +1,29 @@
 import { jsPDF } from "jspdf"
 import type { jsPDFOptions } from "jspdf"
-import { domToCanvas, domToPng } from "modern-screenshot"
-import { GetPdfOptions, PdfInstance } from "../types"
+import { domToCanvas, domToForeignObjectSvg, domToPng, domToSvg } from "modern-screenshot"
+import type { 
+    GetPdfOptions, 
+    PdfInstance, 
+    DomToPngFunc, 
+    DomToCanvasFunc, 
+    DomToSvgFunc, 
+    domToForeignObjectSvgFunc 
+} from "../types"
 import getPageData from "../utils/getPageData"
 import images from "../utils/images"
 import joinObject from "../utils/joinObject"
 import { defaultConfig } from "./config"
 
-type DomToPngFunc = (el: HTMLElement | HTMLElement[] | void, domToPngOptions?: Record<string, any>) => Promise<string | string[]>
-type DomToCanvasFunc = (el: HTMLElement | HTMLElement[] | void, domToCanvasOptions?: Record<string, any>) => Promise<HTMLCanvasElement | HTMLCanvasElement[]>
-
 const _ = undefined
 
 export class ModernHtml2Pdf {
     el: HTMLElement | HTMLElement[]
+
     constructor(el: HTMLElement | HTMLElement[]) {
         this.el = el
     }
+
+    // domToPng returns png dataurl
     domToPng: DomToPngFunc = async (el = this.el, domToPngOptions?) => {
         // multi pages by nodes
         if ("length" in el!) {
@@ -40,13 +47,12 @@ export class ModernHtml2Pdf {
             }
         }
     }
+
     domToCanvas: DomToCanvasFunc = async (el = this.el, domToCanvasOptions?) => {
-        // multi pages by nodes
         if ("length" in el!) {
             const canvases: HTMLCanvasElement[] = []
             for (let i = 0; i < el.length; i++) {
                 if (!domToCanvasOptions) {
-                    // default options
                     canvases.push(await domToCanvas(el[i]))
                 } else {
                     canvases.push(await domToCanvas(el[i], domToCanvasOptions))
@@ -55,10 +61,51 @@ export class ModernHtml2Pdf {
             return canvases
         } else {
             if (!domToCanvasOptions) {
-                // default options
                 return await domToCanvas(el!)
             } else {
                 return await domToCanvas(el!, domToCanvasOptions)
+            }
+        }
+    }
+
+    // domToSvg returns svg dataurl
+    domToSvg: DomToSvgFunc = async (el = this.el, domToSvgOptions?) => {
+        if ("length" in el!) {
+            const svgDataUrls: string[] = []
+            for (let i = 0; i < el.length; i++) {
+                if (!domToSvgOptions) {
+                    svgDataUrls.push(await domToSvg(el[i]))
+                } else {
+                    svgDataUrls.push(await domToSvg(el[i], domToSvgOptions))
+                }
+            }
+            return svgDataUrls
+        } else {
+            if (!domToSvgOptions) {
+                return await domToSvg(el!)
+            } else {
+                return await domToSvg(el!, domToSvgOptions)
+            }
+        }
+    }
+
+    // domToForeignObjectSvg returns SVGElement
+    domToForeignObjectSvg: domToForeignObjectSvgFunc = async (el = this.el, domToForeignObjectSvgOptions?) => {
+        if ("length" in el!) {
+            const svgs: SVGElement[] = []
+            for (let i = 0; i < el.length; i++) {
+                if (!domToForeignObjectSvgOptions) {
+                    svgs.push(await domToForeignObjectSvg(el[i]))
+                } else {
+                    svgs.push(await domToForeignObjectSvg(el[i], domToForeignObjectSvgOptions))
+                }
+            }
+            return svgs
+        } else {
+            if (!domToForeignObjectSvgOptions) {
+                return await domToForeignObjectSvg(el!)
+            } else {
+                return await domToForeignObjectSvg(el!, domToForeignObjectSvgOptions)
             }
         }
     }
@@ -92,14 +139,12 @@ export class ModernHtml2Pdf {
         // init pdf
         _opts.init.call(_opts, pdfInstance.pdf)
 
-        // multi pages by nodes
         if ('length' in this.el) {
             for (let i = 0; i < this.el.length; i++) {
                 const canvas = await this.domToCanvas(this.el[i], _opts.domToCanvasConfig || {})
                 renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts)
             }
         } else {
-            // single page for one node
             const canvas = await this.domToCanvas(this.el, _opts.domToCanvasConfig || {})
             renderCanvas(canvas as HTMLCanvasElement, pdfInstance, _opts)
         }

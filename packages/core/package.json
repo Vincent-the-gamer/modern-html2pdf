@@ -50,8 +50,7 @@
     "modern-screenshot": "^4.4.39"
   },
   "devDependencies": {
-    "@types/node": "^20.14.11",
-    "tsup": "^8.1.2",
-    "typescript": "^5.5.3"
+    "tsup": "^8.2.3",
+    "typescript": "^5.5.4"
   }
 }

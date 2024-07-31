@@ -26,7 +26,7 @@ But it has too much problem with `html2canvas`:
 - Custom fonts couldn't show correctly.
 - ...
 
-These can be gracefully fixed using `modern-screenshot`.
+These can be gracefully fixed using [modern-screenshot](https://github.com/qq15725/modern-screenshot).
 
 That's why I created this repo.
 
@@ -46,7 +46,7 @@ to customize your process, see [Customize your process](#customize-your-process)
 ```typescript
 import { ModernHtml2Pdf } from "modern-html2pdf"
 
-const el = document.getElementById("el")!
+const el = document.getElementById("el")
 const convertor = new ModernHtml2Pdf(el)
 await convertor.quickGenerate({
     fileName: "demo",  // transform to: demo.pdf
@@ -120,7 +120,7 @@ export interface jsPDFOptions {
 ```typescript
 async function exportPDF() {
   const pages = Array.from(document.getElementsByClassName("area"))
-  const convertor = new ModernHtml2Pdf(pages as HTMLElement[])
+  const convertor = new ModernHtml2Pdf(pages)
   await convertor.quickGenerate({
     fileName: "demo",
     domToCanvasConfig: {

@@ -1,5 +1,12 @@
 import type { jsPDF, jsPDFOptions } from "jspdf"
 
+export type DomToPngFunc = (el: HTMLElement | HTMLElement[] | void, domToPngOptions?: Record<string, any>) => Promise<string | string[]>
+export type DomToCanvasFunc = (el: HTMLElement | HTMLElement[] | void, domToCanvasOptions?: Record<string, any>) => Promise<HTMLCanvasElement | HTMLCanvasElement[]>
+// domToSvg returns svg dataurl
+export type DomToSvgFunc = (el: HTMLElement | HTMLElement[] | void, domToSvgOptions?: Record<string, any>) => Promise<string | string[]>
+// domToForeignObjectSvg returns SVGElement
+export type domToForeignObjectSvgFunc = (el: HTMLElement | HTMLElement[] | void, domToForeignObjectSvgOptions?: Record<string, any>) => Promise<SVGElement | SVGElement[]>
+
 export interface PdfInstance {
     pdf: jsPDF
     pdfWidth: number

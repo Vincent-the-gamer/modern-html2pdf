@@ -12,6 +12,7 @@
   "author": "Vincent-the-gamer <erxianqiaottjt@163.com>",
   "license": "MIT",
   "devDependencies": {
-    "taze": "^0.16.1"
+    "@types/node": "^22.0.0",
+    "taze": "^0.16.3"
   }
 }
